@@ -28,5 +28,5 @@ Então as versões seguintes da imagem são estas:
 
 \
 *Assembler* (nasm, 8.89kB)\
-**carlosranoya/codeeducation:0.0.4**
+**carlosranoya/codeeducation:0.0.4**\
 **carlosranoya/codeeducation:latest**
