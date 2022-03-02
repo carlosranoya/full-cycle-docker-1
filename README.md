@@ -11,9 +11,9 @@ A imagem docker solicitada, com a implementação em *Golang* é esta, com 1.16M
 
 
 \
-Com a intenção e curiosidade de gerar containers menores ainda, fiz tentativas compilando o executável em C++, C e Assembler. Este último deu mais trabalho, porque não encontrei nenhuma imagem no docker oficial com compilador assembler que resolvesse, aí tive que criar uma imagem a partir de um linux que suportasse o montador nasm e que rodasse em máquinas de 64 bits.
+Com a intenção e curiosidade de gerar containers menores ainda, fiz tentativas compilando o executável em C++, C e Assembler. Este último deu mais trabalho, porque não encontrei nenhuma imagem oficial no Docker Hub com compilador assembler que resolvesse, então resolvi criar uma imagem a partir de um linux que suportasse o montador nasm e que rodasse em máquinas de 64 bits.
 
-Nas versões pra C e C++ descobri que teria que compilar com link estático pra poder funcionar na imagem scratch do Docker, e desta forma as imagens não ficaram tão pequenas quanto eu imaginava. A imagem em C++ ficou maior que a imagem em Go, mesmo com algumas tentativas de otimização de tamanho na compilação e linkagem. Mas as bibliotecas std linkadas estaticamente não têm muito como ser reduzidas em tamanho.
+Nas versões pra C e C++ descobri que teria que fazer link das bibliotecas de modo estático pparara poder funcionar na imagem scratch do Docker, e, por conta idsto, as imagens não ficaram tão pequenas quanto eu imaginava. A imagem em C++ ficou maior que a imagem em Go, mesmo com algumas tentativas de otimização de tamanho na compilação. Mas as bibliotecas standard, linkadas estaticamente, não têm muito como ser reduzidas em tamanho. Isso foi uma surpresa muito positiva em relação ao Go, capaz de gerar executáveis realmente com tamanho bem reduzido.
 
 
 Então as versões seguintes da imagem são estas:
